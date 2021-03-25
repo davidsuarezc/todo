@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+/* import { useState } from "react"; */
+import TaskForm from "./components/TaskForm"
+import TasksList from "./components/TasksList"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Provider } from "react-redux"
+import store from "./redux/store";
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <div className="row" style={{ margin: '20px 20px' }}>
+        <div className="col-md-4">
+          <TaskForm />
+        </div>
+        <div className="col-md-8">
+          <TasksList />
+        </div>
+      </div>
+    </Provider>
   );
 }
 
