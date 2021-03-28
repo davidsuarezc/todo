@@ -1,11 +1,10 @@
 import React from 'react'
-import { connect } from "react-redux"
 
-function TaskForm({ addTask }) {
+function TaskForm({ onAddTask }) {
 
     const onSubmit = e => {
         e.preventDefault()
-        addTask({
+        onAddTask({
             tittle: e.target.titulo.value,
             description: e.target.descripcion.value
         })
@@ -32,13 +31,4 @@ function TaskForm({ addTask }) {
     )
 }
 
-const mapDispatchToProps = (dispatch) => ({
-    addTask(newTask) {
-        dispatch({
-            type: 'ADD_TASK',
-            payload: newTask
-        })
-    }
-})
-
-export default connect(null, mapDispatchToProps)(TaskForm)
+export default TaskForm

@@ -12,7 +12,7 @@ const reducer = (state = initialState, action) => {
         return {
             ...state,
             tasks: state.tasks.concat(action.payload),
-            idCounter: ++state.idCounter
+            idCounter: action.payload.id
         }
     }
 
